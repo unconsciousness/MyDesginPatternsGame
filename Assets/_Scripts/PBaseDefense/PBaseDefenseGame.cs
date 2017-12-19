@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,21 +9,24 @@ public class PBaseDefenseGame
 
 
 	//Singleton模式
-	private static PBaseDefenseGame _intance;
-	public static PBaseDefenseGame Intance
+	private static PBaseDefenseGame _instance;
+	public static PBaseDefenseGame Instance
 	{
 		get
 		{
-			if (_intance == null)
+			if (_instance == null)
 			{
-				_intance = new PBaseDefenseGame();
+				_instance = new PBaseDefenseGame();
 			}
-			return _intance;
+			return _instance;
 		}
 	}
 	private PBaseDefenseGame() { }
 
+	public void Release()
+	{
 
+	}
 
 	//游戏系统
 
@@ -32,17 +36,17 @@ public class PBaseDefenseGame
 	private CharacterSystem m_CharacterSystem = null;       //角色管理系统
 	private APSystem m_APSystem = null;                     //行动力系统
 	private AchievementSystem m_AchievementSystem = null;   //成就系统
-															/*
-															//界面
-															private CampInfoUI m_CampInfoUI = null;					//兵营界面
-															private SoldierInfoUI m_SoldierInfoUI = null;			//战士信息界面
-															private GameStateInfoUI m_GameStateInfoUI = null;		//游戏状态界面
-															private GamePauseUI m_GamePauseUI = null;				//游戏暂停界面
+
+	//界面
+	private CampInfoUI m_CampInfoUI = null;                 //兵营界面
+	private SoldierInfoUI m_SoldierInfoUI = null;           //战士信息界面
+	private GameStateInfoUI m_GameStateInfoUI = null;       //游戏状态界面
+	private GamePauseUI m_GamePauseUI = null;               //游戏暂停界面
 
 
 
-															*/
-															//游戏状态
+
+	//游戏状态
 	bool m_bGameOver = false;
 
 
@@ -53,28 +57,32 @@ public class PBaseDefenseGame
 		//场景状态控制
 		m_bGameOver = false;
 		//游戏系统
-		GameEventSystem m_GameEventSystem = new GameEventSystem(this);      //游戏事件系统
-		CampSystem m_CampSystem = new CampSystem(this);                     //兵营系统
-		StageSystem m_StageSystem = new StageSystem(this);                  //关卡系统
-		CharacterSystem m_CharacterSystem = new CharacterSystem(this);      //角色管理系统
-		APSystem m_APSystem = new APSystem(this);                           //行动力系统
-		AchievementSystem m_AchievementSystem = new AchievementSystem(this);//成就系统
-																			/*
-																			//界面
-																			m_CampInfoUI = new CampInfoUI(this);								//兵营信息
-																			m_SoldierInfoUI = new SoldierInfoUI(this);							//Soldier信息
-																			m_GameStateInfoUI = new GameStateInfoUI(this);						//游戏数据
-																			m_GamePauseUI = new GamePauseUI(this);								//游戏暂停
+		m_GameEventSystem = new GameEventSystem(this);                      //游戏事件系统
+		m_CampSystem = new CampSystem(this);                                //兵营系统
+		m_StageSystem = new StageSystem(this);                              //关卡系统
+		m_CharacterSystem = new CharacterSystem(this);                      //角色管理系统
+		m_APSystem = new APSystem(this);                                    //行动力系统
+		m_AchievementSystem = new AchievementSystem(this);                  //成就系统
+
+		//界面
+		m_CampInfoUI = new CampInfoUI(this);                                //兵营信息
+		m_SoldierInfoUI = new SoldierInfoUI(this);                          //Soldier信息
+		m_GameStateInfoUI = new GameStateInfoUI(this);                      //游戏数据
+		m_GamePauseUI = new GamePauseUI(this);                              //游戏暂停
 																			//注入到其他系统 
-																			EnemyAI.SetStageSystem(m_StageSystem);
+
+		//EnemyAI.SetStageSystem(m_StageSystem);
 
 
-																			*/
+
 	}
 
 	public void Update()
 	{
-		/*
+		//玩家输入
+		InputProcess();
+
+		
 		//游戏系统更新
 		m_GameEventSystem.Update();
 		m_CampSystem.Update();
@@ -82,7 +90,16 @@ public class PBaseDefenseGame
 		m_CharacterSystem.Update();
 		m_APSystem.Update();
 		m_AchievementSystem.Update();
-		*/
+		
+
+		//界面更新    各种UI的更新
+		m_CampInfoUI.Update();
+		m_SoldierInfoUI.Update();
+		m_GameStateInfoUI.Update();
+		m_GamePauseUI.Update();
+
+
+
 	}
 
 	//游戏状态
@@ -188,6 +205,24 @@ public class PBaseDefenseGame
 		RaycastHit[] hits = Physics.RaycastAll(ray);
 
 		//遍历每一个被Hit到的GameObject
+		foreach (RaycastHit hit in hits)
+		{
+			//是否有兵营被鼠标单击
+			//CampOnClick CampClickScript = hit.transform.gameObject.GetComponent<CampOnClick>();
+			if (true)//CampClickScript!=null
+			{
+				//CampClickScript.OnClick();
+				return;
+			}
+
+			//是否有角色被鼠标单击
+			//SoldierOnClick SoldierClickScript = hit.transform.gameObject.GetComponent<SoldierOnClick>();
+			if (true)//SoldierClickScript!=null
+			{
+				//SoldierClickScript.OnClick();
+				return;
+			}
+		}
 
 	}
 	//

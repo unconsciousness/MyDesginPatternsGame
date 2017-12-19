@@ -12,34 +12,33 @@ public class BattleState : ISceneState
 	//开始
 	public override void StateBegin()
 	{
-		//PBaseDefenseGame.Instance.Initinal();
+		PBaseDefenseGame.Instance.Initinal();
 		Debug.Log(" Game ! Begin !");
 	}
 
 	//结束
 	public override void StateEnd()
 	{
-		//PBaseDefenseGame.Instance.Release();
+		PBaseDefenseGame.Instance.Release();
 	}
 
 	//更新
 	public override void StateUpdate()
 	{
-		//输入
-		InputProcess();
+		
 
 		//游戏逻辑
-		//PBaseDefenseGame.Instance.Update();
+		PBaseDefenseGame.Instance.Update();
 
-		//Render由Unity负责 　　　？？？没看懂
+		//Render由Unity负责 　　游戏画面的渲染交由Unity本身完成
 
 		//游戏是否结束
-		//if(//PBaseDefenseGame.Instance.ThisGameIsOver())
-		//    m_Controller.SetState(new MainMenuState(m_Controller),"MainMenuScene");		
-	}
-
-	private void InputProcess() {
-		//玩家输入判断程序代码……
+		if (PBaseDefenseGame.Instance.ThisGameIsOver())
+		{
+			    m_Controller.SetState(new MainMenuState(m_Controller),"MainMenuScene");	
+		}
 
 	}
+
+	
 }
