@@ -85,6 +85,7 @@
     <Compile Include="Assets\_Scripts\Design Patterns in Game Development\State Pattern\State.cs" />
     <Compile Include="Assets\_Scripts\Design Patterns in Game Development\State Pattern\StateTEST.cs" />
     <Compile Include="Assets\_Scripts\PBaseDefense\BattleState.cs" />
+    <Compile Include="Assets\_Scripts\PBaseDefense\Character\Weapon.cs" />
     <Compile Include="Assets\_Scripts\PBaseDefense\GameFunction.cs" />
     <Compile Include="Assets\_Scripts\PBaseDefense\GameLoop.cs" />
     <Compile Include="Assets\_Scripts\PBaseDefense\GameSystem\APSystem.cs" />
@@ -93,8 +94,11 @@
     <Compile Include="Assets\_Scripts\PBaseDefense\GameSystem\CharacterSystem.cs" />
     <Compile Include="Assets\_Scripts\PBaseDefense\GameSystem\GameEventSystem.cs" />
     <Compile Include="Assets\_Scripts\PBaseDefense\GameSystem\StageSystem.cs" />
-    <Compile Include="Assets\_Scripts\PBaseDefense\ISceneState.cs" />
     <Compile Include="Assets\_Scripts\PBaseDefense\ISystem\IGameSystem.cs" />
+    <Compile Include="Assets\_Scripts\PBaseDefense\ISystem\IPeople\ICharacter.cs" />
+    <Compile Include="Assets\_Scripts\PBaseDefense\ISystem\IPeople\IEnemy.cs" />
+    <Compile Include="Assets\_Scripts\PBaseDefense\ISystem\IPeople\ISoldier.cs" />
+    <Compile Include="Assets\_Scripts\PBaseDefense\ISystem\ISceneState.cs" />
     <Compile Include="Assets\_Scripts\PBaseDefense\ISystem\IUserInterface.cs" />
     <Compile Include="Assets\_Scripts\PBaseDefense\MainMenuState.cs" />
     <Compile Include="Assets\_Scripts\PBaseDefense\PBDFactory.cs" />
