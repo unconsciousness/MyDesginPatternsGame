@@ -18,19 +18,29 @@ public static class PBDFactory
 		}
 		return m_assetFactory;
 	}
+	
 }
 
 public interface IAssetFactory
 {
+	 AudioClip LoadAudioClip(string ClipName);
+	
 
+	
 }
 
 public class ResourceAssetFactory : IAssetFactory
 {
-
+	public AudioClip LoadAudioClip(string ClipName)
+	{
+		throw new System.NotImplementedException();
+	}
 }
 
 public class RemoveAssetFactory : IAssetFactory
 {
-	
+	public AudioClip LoadAudioClip(string ClipName)
+	{
+		throw new System.NotImplementedException();
+	}
 }
