@@ -35,15 +35,15 @@ public class ISoldier : ICharacter
 	*/
 
 	//攻击目标
-	public override void Attack(ICharacter theTarget)
-	{
-		//武器攻击
-		WeaponAttackTarget(theTarget);
-	}
+	//public override void Attack(ICharacter theTarget)
+	//{
+	//	//武器攻击
+	//	WeaponAttackTarget(theTarget);
+	//}
 
-	//被武器攻击
-	public override void UnderAttack(ICharacter Attacker)
-	{
-		throw new System.NotImplementedException();
-	}
+	////被武器攻击
+	//public override void UnderAttack(ICharacter Attacker)
+	//{
+	//	throw new System.NotImplementedException();
+	//}
 }

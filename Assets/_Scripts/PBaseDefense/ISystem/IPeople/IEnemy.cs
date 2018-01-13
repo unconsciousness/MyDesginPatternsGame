@@ -5,19 +5,19 @@ using UnityEngine;
 public class IEnemy : ICharacter
 {
 	int m_Value=0;
-	public override void Attack(ICharacter theTarget)
-	{
-		//设置武器的额外攻击力加成
-		//SetWeaponAtkPlusValue(m_Value.GetAtkPlusValue());
+	//public override void Attack(ICharacter theTarget)
+	//{
+	//	//设置武器的额外攻击力加成
+	//	//SetWeaponAtkPlusValue(m_Value.GetAtkPlusValue());
 
-		//武器攻击
-		WeaponAttackTarget(theTarget);
-	}
+	//	//武器攻击
+	//	WeaponAttackTarget(theTarget);
+	//}
 
-	public override void UnderAttack(ICharacter Attacker)
-	{
-		throw new System.NotImplementedException();
-	}
+	//public override void UnderAttack(ICharacter Attacker)
+	//{
+	//	throw new System.NotImplementedException();
+	//}
 
 	//没有使用桥接模式情况下攻击函数的写法
 	/*
